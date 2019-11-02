@@ -9,7 +9,9 @@ jobs:
 
     steps:
     - name: Deploy to test environment
-      run: echo 'Deploying in dev'
+      run: echo 'Deploying to test environment'
+    - name: Testing secrets
+      run: printenv
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         MY_DEV_SECRET: ${{ secrets.MY_DEV_SECRET }}
