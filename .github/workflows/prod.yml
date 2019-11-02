@@ -12,7 +12,9 @@ jobs:
       - name: Decrypt large secret
         run: ./.github/scripts/decrypt_secret.sh
         env:
-          LARGE_SECRET_PASSPHRASE: $
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MY_DEV_SECRET: ${{ secrets.MY_DEV_SECRET }}
+          MY_PROD_SECRET: ${{ secrets.MY_PROD_SECRET }}
       # This command is just an example to show your secret being printed
       # Ensure you remove any print statements of your secrets. GitHub does
       # not hide secrets that use this workaround.
