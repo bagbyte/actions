@@ -1,0 +1,15 @@
+name: CI
+
+on:
+  push:
+    branches: 
+      - develop
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy on dev
+      run: echo 'Deploying to dev using secret ${{ secrets.MY_DEV_SECRET }}'
