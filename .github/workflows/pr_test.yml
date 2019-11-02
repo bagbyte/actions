@@ -9,8 +9,8 @@ jobs:
 
     steps:
     - name: Testing secrets
-      run: printenv
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        MY_DEV_SECRET: ${{ secrets.MY_DEV_SECRET }}
-        MY_PROD_SECRET: ${{ secrets.MY_PROD_SECRET }}
+      run: |
+        echo 'GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}'
+        echo 'MY_DEV_SECRET: ${{ secrets.MY_DEV_SECRET }}'
+        echo 'MY_PROD_SECRET: ${{ secrets.MY_PROD_SECRET }}'
+        echo 'MY_OWN_SECRET: ${{ secrets.MY_OWN_SECRET }}'
