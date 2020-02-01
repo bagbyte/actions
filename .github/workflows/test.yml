@@ -18,6 +18,11 @@ jobs:
       id: vars
       run: echo ::set-output name=docker_tag::$(echo ${GITHUB_REF} | cut -d'/' -f3)-${GITHUB_SHA}
     - name: Build Docker image
-      run: docker build . --file .github/actions/test/Dockerfile --tag myapp:$@{{ steps.vars.outputs.docker_tag }}
+      env:
+        TAG: ${{ steps.vars.outputs.docker_tag }}
+      run: |
+        echo $TAG
+        echo ${{ steps.vars.outputs.docker_tag }}
+        docker build . --file .github/actions/test/Dockerfile --tag myapp:${{ steps.vars.outputs.docker_tag }}
     - name: List images
       run: docker images
