@@ -14,6 +14,9 @@ jobs:
       run: ls -latr
     - name: List images
       run: docker images
+    - name: Set tag var
+      id: vars
+      run: echo ::set-output name=docker_tag::$(echo ${GITHUB_REF} | cut -d'/' -f3)-${GITHUB_SHA}
     - name: Build Docker image
       run: docker build . --file .github/actions/test/Dockerfile --tag myapp:$@{{ steps.vars.outputs.docker_tag }}
     - name: List images
