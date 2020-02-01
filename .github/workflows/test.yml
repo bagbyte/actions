@@ -14,3 +14,7 @@ jobs:
       run: ls -latr
     - name: List images
       run: docker images
+    - name: Build Docker image
+      run: docker build . --file .github/actions/test/Dockerfile --tag myapp:$@{{ steps.vars.outputs.docker_tag }}
+    - name: List images
+      run: docker images
