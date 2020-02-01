@@ -1,6 +1,6 @@
 FROM alpine:3.10
 
-WORKDIR /srv
+#WORKDIR /srv
 
 COPY entrypoint.sh /entrypoint.sh
 
